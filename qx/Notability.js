@@ -5,7 +5,7 @@ TG频道群：https://t.me/gjwj6
 使用声明：⚠️此脚本仅供学习与交流，请勿转载与贩卖！⚠️⚠️⚠️
 *******************************
 [rewrite_local]
-^https?:\/\/notability\.com\/subscriptions url script-response-body https://raw.githubusercontent.com/gjwj666/qx/main/Notability.js
+^https?:\/\/notability\.com\/subscriptions url script-response-body https://raw.githubusercontent.com/wujiyu115/catcher/qx/main/Notability.js
 [mitm]
 hostname = notability.com
 *******************************/
