@@ -1,11 +1,9 @@
 /******************************
 脚本功能：Notability +解锁订阅
-下载地址：http://mtw.so/6bQodv
-TG频道群：https://t.me/gjwj6
-使用声明：⚠️此脚本仅供学习与交流，请勿转载与贩卖！⚠️⚠️⚠️
+
 *******************************
 [rewrite_local]
-^https?:\/\/notability\.com\/subscriptions url script-response-body https://raw.githubusercontent.com/wujiyu115/catcher/qx/main/Notability.js
+^https?:\/\/notability\.com\/subscriptions url script-response-body https://raw.githubusercontent.com/wujiyu115/catcher/main/qx/Notability.js
 [mitm]
 hostname = notability.com
 *******************************/

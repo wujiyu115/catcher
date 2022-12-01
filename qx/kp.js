@@ -1,7 +1,5 @@
 /*
 
-Tg频道:https://t.me/gjwj6
-
 解锁会员课程，直播课程全解锁
 
 添加了远程js 修改内容会失效
@@ -12,7 +10,7 @@ Tg频道:https://t.me/gjwj6
 
 #keep解锁
 ^https:\/\/.+keep.+/gerudo/v2/liveCourse/.+/details.*$ url response-body "userMemberStatus":\w+ response-body "userMemberStatus":true
-^http[s]?:\/\/.+keep.+(liveStream/schedule|start|preview|athena/v5/people/my|ad/preload).*$ url script-response-body https://raw.githubusercontent.com/wujiy115/catcher/qx/main/kp.js
+^http[s]?:\/\/.+keep.+(liveStream/schedule|start|preview|athena/v5/people/my|ad/preload).*$ url script-response-body https://raw.githubusercontent.com/wujiyu115/catcher/main/qx/kp.js
 
 
 hostname = *keep*
@@ -52,7 +50,7 @@ if (url.indexOf(athena) != -1) {
     body_data.data["user"].avatar = "https://gjds.vip/img/logo.png";
     body_data.data['user'].memberInfo['buttonText'] = "2999-09-09到期";
     body_data.data["user"].memberInfo["scrollIntros"] = ["解锁所有课程"];
-    body_data.data["user"].username = "ios鸡神破解";
+    body_data.data["user"].username = "ios破解";
     body_data.data["user"].kgData["growthLevel"] = 5;
     body_data.data["user"].kgData['schema'] = 'http://n8t.cn/isRcT';
     body = JSON.stringify(body_data);
