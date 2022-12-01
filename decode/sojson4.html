@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="cn">
+
+<head>
+    <title>Sojson v5 解密</title>
+</head>
+
+<body style="min-width: 1220px">
+    <!-- begin::preloader-->
+    <div class="preloader">
+        <div class="preloader-icon"></div>
+    </div>
+
+    <!-- begin::main -->
+    <div class="layout-wrapper">
+        <!-- begin::header -->
+        <!-- end::header -->
+        <div class="content-wrapper">
+            <div class="aman-warp">
+
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-9 m-auto">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title m-b-5">AmanCTF - Sojson v5 解密</h6>
+                                    <p class="text-muted small">Sojson.v5|jsjiami.com.v5 加密 在线解密</p>
+                                    <form action="">
+                                        <div class="form-group">
+                                            <textarea placeholder="请输入加密后的Sojson.v5" id="code"
+                                                style="height: 300px;width: 500px;" class="form-control"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <button id="decode" type="button"
+                                                class="btn btn-primary m-r-15">开始破解</button>
+                                            <!-- <button onclick="js_format()" type="button"
+                                                class="btn btn-primary">美化代码</button> -->
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea placeholder="结果" id="str" style="height: 300px;width: 500px;"
+                                                class="form-control"></textarea>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.14.7/beautify.min.js"></script>
+    <script>
+
+        $("#decode").click(function () {
+            let code = $.trim($("#code").val());
+            if (code == "") {
+                alert("请输入密文");
+            }
+            $("#str").val(js_format(decode(code)));
+        });
+        function js_format(data) {
+            return js_beautify(data, 2, '   ');
+        }
+        function decode(str) {
+            if (str.indexOf(['sojson.v4']) == -1) {
+                toastr.warning("Given code is not encoded as Sojson v4.");
+                return "";
+            }
+            try {
+                let head = "(['sojson.v4']+[])[\"constructor\"]['fromCharCode']['apply']",
+                    foot = "\"['split'](/[a-zA-Z]{1,}/))";
+                str = unescape(str.replace(/(\\x)/gi, '%'));
+                return "/*\n*Aman - 194nb.com\n*/\n" + eval(str.substring(str.indexOf(head), str.indexOf(foot) + foot.length));
+            } catch (e) {
+                toastr.error("抱歉，破解失败了:" + e.message);
+            }
+        }
+    </script>
+</body>
+
+</html>
